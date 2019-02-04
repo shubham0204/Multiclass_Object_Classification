@@ -26,11 +26,11 @@ class Classifier (object) :
 
             Reshape( input_shape=input_shape , target_shape=convolution_shape),
 
-            Conv2D( 32, kernel_size=kernel_size , strides=strides , activation=activation_func),
+            Conv2D( 32, kernel_size=( 4 , 4 ) , strides=strides , activation=activation_func),
             MaxPooling2D(pool_size=pool_size, strides=strides ),
 
-            Conv2D( 64, kernel_size=kernel_size , strides=strides , activation=activation_func),
-            MaxPooling2D(pool_size=pool_size, strides=strides),
+            Conv2D( 64, kernel_size=( 3 , 3 ) , strides=strides , activation=activation_func),
+            MaxPooling2D(pool_size=pool_size , strides=strides),
 
             Flatten(),
 
