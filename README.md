@@ -10,4 +10,4 @@ The dataset is named [Natural Images](https://www.kaggle.com/prasunroy/natural-i
 by [Prasun Roy](https://www.kaggle.com/prasunroy)
  on [Kaggle.com](https://www.kaggle.com).
 
-![Hello](random_images/image_1.jpg)
+![Sample Data](readme_images/image_1.png)
