@@ -30,7 +30,7 @@ for i in range( len( sub_dir_list ) ):
         labels.append( label )
 
 x = np.array( images )
-y = np.array( keras.utils.to_categorical( np.array( labels) , num_classes=8 ) )
+y = np.array( keras.utils.to_categorical( np.array( labels) , num_classes=len(sub_dir_list) ) )
 
 train_features , test_features ,train_labels, test_labels = train_test_split( x , y , test_size=0.4 )
 
