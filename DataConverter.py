@@ -7,7 +7,9 @@ from sklearn.model_selection import train_test_split
 
 dimen = 32
 
-dir_path = 'image_data/'
+dir_path = input( 'Enter images directory path : ')
+output_path = input( 'Enter output directory path : ')
+
 sub_dir_list = os.listdir( dir_path )
 images = list()
 labels = list()
@@ -34,9 +36,9 @@ y = np.array( keras.utils.to_categorical( np.array( labels) , num_classes=len(su
 
 train_features , test_features ,train_labels, test_labels = train_test_split( x , y , test_size=0.4 )
 
-np.save( 'processed_data/x.npy' , train_features )
-np.save( 'processed_data/y.npy' , train_labels )
-np.save( 'processed_data/test_x.npy' , test_features )
-np.save( 'processed_data/test_y.npy' , test_labels )
+np.save( '{}x.npy'.format( output_path )  , train_features )
+np.save( '{}y.npy'.format( output_path )  , train_labels )
+np.save( '{}test_x.npy'.format( output_path ) , test_features )
+np.save( '{}test_y.npy'.format( output_path ) , test_labels )
 
 
