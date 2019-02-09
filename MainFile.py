@@ -20,7 +20,7 @@ X = X.reshape( ( X.shape[0] , data_dimension**2  ) ).astype( np.float32 )
 test_X = test_X.reshape( ( test_X.shape[0] , data_dimension**2 ) ).astype( np.float32 )
 
 classifier = Classifier( number_of_classes=8 )
-#classifier.load_model( 'models/model.h5')
+classifier.load_model( 'models/model.h5')
 
 parameters = {
     'batch_size' : 250 ,

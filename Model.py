@@ -50,13 +50,21 @@ class Classifier (object) :
         )
 
     def fit(self, X, Y  , hyperparameters):
-        self.__model.fit(X, Y ,
-                         batch_size=hyperparameters[ 'batch_size' ] ,
-                         epochs=hyperparameters[ 'epochs' ] ,
-                         callbacks=hyperparameters[ 'callbacks' ] ,
-                         validation_data=hyperparameters[ 'val_data' ]
+        initial_time = time.time()
+        self.__model.fit(X, Y,
+                         batch_size=hyperparameters['batch_size'],
+                         epochs=hyperparameters['epochs'],
+                         callbacks=hyperparameters['callbacks'],
+                         validation_data=hyperparameters['val_data']
                          )
-        self.__model.summary( )
+        final_time = time.time()
+        eta = (final_time - initial_time)
+        time_unit = 'seconds'
+        if eta >= 60:
+            eta = eta / 60
+            time_unit = 'minutes'
+        self.__model.summary()
+        print('Elapsed time acquired for {} epoch(s) -> {} {}'.format(hyperparameters['epochs'], eta, time_unit))
 
     def prepare_images_from_dir( self , dir_path ) :
         images = list()
@@ -88,7 +96,6 @@ class Classifier (object) :
 
     def load_model(self , file_path ):
         self.__model = models.load_model(file_path)
-
 
 
 
